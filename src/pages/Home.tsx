@@ -9,34 +9,43 @@ const Home = () => {
   const features = [
     {
       icon: Shield,
-      title: "Blockchain Security",
-      description: "Immutable records ensure data integrity and transparency across the entire supply chain."
+      title: "Hyperledger Fabric",
+      description: "Permissioned blockchain with optional Polygon L2 anchoring for enterprise-grade security and public verifiability."
     },
     {
       icon: TrendingUp,
-      title: "Real-Time Tracking",
-      description: "Monitor products at every stage with instant updates and complete visibility."
+      title: "AI-Powered Analytics",
+      description: "Real-time fraud detection using XGBoost/LightGBM with Kafka streaming and Neo4j graph analytics."
     },
     {
       icon: Users,
-      title: "Multi-Stakeholder",
-      description: "Connect suppliers, manufacturers, distributors, retailers, and customers seamlessly."
+      title: "Multi-Stakeholder Network",
+      description: "Keycloak-based identity management connecting suppliers, manufacturers, distributors, and retailers."
     },
     {
       icon: LinkIcon,
       title: "Smart Contracts",
-      description: "Automate workflows and transactions with programmable blockchain logic."
+      description: "Solidity and Fabric chaincode for automated workflows with HSM-secured cryptographic keys."
     },
     {
       icon: CheckCircle,
-      title: "Verified Authenticity",
-      description: "Prevent counterfeits with cryptographic verification at each touchpoint."
+      title: "IoT Integration",
+      description: "MQTT-based real-time tracking with GPS, weight sensors, and e-seals for tamper-proof monitoring."
     },
     {
       icon: Lock,
-      title: "Data Privacy",
-      description: "Granular access controls protect sensitive business information."
+      title: "Enterprise Security",
+      description: "KMS/HSM key management, encrypted PostgreSQL, and OWASP-compliant security architecture."
     }
+  ];
+
+  const techStack = [
+    { category: "Blockchain", tech: "Hyperledger Fabric / Quorum" },
+    { category: "Smart Contracts", tech: "Solidity / Fabric Chaincode" },
+    { category: "Backend", tech: "Node.js / Go + GraphQL" },
+    { category: "AI & Analytics", tech: "Kafka + Spark + Neo4j" },
+    { category: "IoT Gateway", tech: "EMQX / MQTT" },
+    { category: "Security", tech: "Keycloak + HSM" },
   ];
 
   return (
@@ -49,13 +58,13 @@ const Home = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Transform Your Supply Chain with{" "}
+              Enterprise Blockchain for{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Blockchain
+                Supply Chain
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-              Decentrix delivers end-to-end transparency and trust through decentralized technology
+              Hyperledger Fabric-powered platform with IoT integration, AI analytics, and enterprise-grade security
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link to="/login">
@@ -77,9 +86,9 @@ const Home = () => {
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-3xl md:text-5xl font-bold">Why Choose Decentrix</h2>
+            <h2 className="text-3xl md:text-5xl font-bold">Enterprise-Grade Architecture</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Built for the modern supply chain, powered by blockchain technology
+              Built on Hyperledger Fabric with cutting-edge IoT, AI, and security technologies
             </p>
           </div>
           
@@ -99,6 +108,44 @@ const Home = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tech Stack Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-3xl md:text-5xl font-bold">Technology Stack</h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Production-ready infrastructure for enterprise blockchain networks
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Card className="bg-card/50 backdrop-blur border-border shadow-card">
+              <CardContent className="pt-8">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {techStack.map((item, index) => (
+                    <div key={index} className="p-4 rounded-lg bg-gradient-primary/5 border border-border/50">
+                      <p className="text-sm text-muted-foreground mb-2">{item.category}</p>
+                      <p className="font-semibold text-lg">{item.tech}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 p-6 rounded-lg bg-gradient-hero/10 border border-primary/20">
+                  <h3 className="font-semibold text-lg mb-3">Additional Technologies</h3>
+                  <div className="grid md:grid-cols-2 gap-3 text-sm text-muted-foreground">
+                    <div>• React Native Mobile Apps</div>
+                    <div>• S3-Compatible Storage + KMS</div>
+                    <div>• Kafka Event Streaming</div>
+                    <div>• Encrypted PostgreSQL</div>
+                    <div>• XGBoost/LightGBM ML Models</div>
+                    <div>• OWASP Security Standards</div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>

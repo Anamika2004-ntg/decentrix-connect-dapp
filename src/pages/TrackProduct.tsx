@@ -12,11 +12,11 @@ const TrackProduct = () => {
   const [isTracking, setIsTracking] = useState(false);
 
   const trackingStages = [
-    { stage: "Supplier", location: "Jakarta, Indonesia", timestamp: "2024-01-15 08:30", status: "completed" },
-    { stage: "Manufacturer", location: "Bangkok, Thailand", timestamp: "2024-01-16 14:20", status: "completed" },
-    { stage: "Distributor", location: "Singapore", timestamp: "2024-01-18 09:15", status: "completed" },
-    { stage: "Retailer", location: "Kuala Lumpur, Malaysia", timestamp: "2024-01-19 11:00", status: "active" },
-    { stage: "Customer", location: "Pending Delivery", timestamp: "Est. 2024-01-20", status: "pending" },
+    { stage: "Supplier", location: "Jakarta, Indonesia", timestamp: "2024-01-15 08:30", status: "completed", iot: "Weight: 500kg, E-seal: Intact" },
+    { stage: "Manufacturer", location: "Bangkok, Thailand", timestamp: "2024-01-16 14:20", status: "completed", iot: "Temp: 22°C, Humidity: 45%" },
+    { stage: "Distributor", location: "Singapore", timestamp: "2024-01-18 09:15", status: "completed", iot: "GPS: Active, Speed: 60km/h" },
+    { stage: "Retailer", location: "Kuala Lumpur, Malaysia", timestamp: "2024-01-19 11:00", status: "active", iot: "Weight: 498kg, E-seal: Active" },
+    { stage: "Customer", location: "Pending Delivery", timestamp: "Est. 2024-01-20", status: "pending", iot: "Awaiting confirmation" },
   ];
 
   const handleTrack = () => {
@@ -37,7 +37,7 @@ const TrackProduct = () => {
           <div className="text-center mb-12 space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold">Track Your Product</h1>
             <p className="text-xl text-muted-foreground">
-              Enter your tracking ID to view real-time blockchain verification
+              Real-time IoT sensor data verified on Hyperledger Fabric blockchain
             </p>
           </div>
 
@@ -92,8 +92,12 @@ const TrackProduct = () => {
                       <p className="font-medium">Jakarta, Indonesia</p>
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground">Blockchain Hash</p>
-                      <p className="font-medium text-xs">0x7a8f...3d2e</p>
+                      <p className="text-sm text-muted-foreground">Blockchain Network</p>
+                      <p className="font-medium">Hyperledger Fabric</p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">Smart Contract</p>
+                      <p className="font-medium text-xs">chaincode_v2.1</p>
                     </div>
                   </div>
                 </CardContent>
@@ -101,8 +105,8 @@ const TrackProduct = () => {
 
               <Card className="shadow-card">
                 <CardHeader>
-                  <CardTitle>Supply Chain Journey</CardTitle>
-                  <CardDescription>Verified stages on the blockchain</CardDescription>
+                  <CardTitle>Supply Chain Journey with IoT Verification</CardTitle>
+                  <CardDescription>Each stage verified by sensors and recorded on blockchain</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
@@ -137,6 +141,7 @@ const TrackProduct = () => {
                                 {stage.location}
                               </p>
                               <p className="text-xs text-muted-foreground mt-1">{stage.timestamp}</p>
+                              <p className="text-xs text-accent mt-1">IoT: {stage.iot}</p>
                             </div>
                             {stage.status === "completed" && (
                               <Button size="sm" variant="outline">

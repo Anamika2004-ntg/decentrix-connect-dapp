@@ -7,16 +7,16 @@ import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const stats = [
-    { title: "Total Products", value: "1,234", change: "+12%", icon: Package, color: "text-primary" },
-    { title: "Active Transactions", value: "89", change: "+5%", icon: Activity, color: "text-accent" },
-    { title: "Network Partners", value: "42", change: "+3", icon: Users, color: "text-secondary" },
-    { title: "Success Rate", value: "98.5%", change: "+2%", icon: TrendingUp, color: "text-primary-glow" },
+    { title: "Blockchain Transactions", value: "1,234", change: "+12%", icon: Package, color: "text-primary" },
+    { title: "IoT Devices Active", value: "89", change: "+5%", icon: Activity, color: "text-accent" },
+    { title: "Network Nodes", value: "42", change: "+3", icon: Users, color: "text-secondary" },
+    { title: "AI Fraud Detection", value: "98.5%", change: "+2%", icon: TrendingUp, color: "text-primary-glow" },
   ];
 
   const recentTransactions = [
-    { id: "TX001", product: "Premium Coffee Beans", status: "Delivered", timestamp: "2 hours ago" },
-    { id: "TX002", product: "Organic Tea Leaves", status: "In Transit", timestamp: "5 hours ago" },
-    { id: "TX003", product: "Roasted Almonds", status: "Processing", timestamp: "1 day ago" },
+    { id: "TX001", product: "Premium Coffee Beans", status: "Delivered", timestamp: "2 hours ago", sensors: "GPS: ✓, Temp: 22°C" },
+    { id: "TX002", product: "Organic Tea Leaves", status: "In Transit", timestamp: "5 hours ago", sensors: "GPS: ✓, E-Seal: Active" },
+    { id: "TX003", product: "Roasted Almonds", status: "Processing", timestamp: "1 day ago", sensors: "Weight: 750kg" },
   ];
 
   return (
@@ -25,8 +25,8 @@ const Dashboard = () => {
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Dashboard</h1>
-          <p className="text-muted-foreground">Monitor your supply chain operations in real-time</p>
+          <h1 className="text-4xl font-bold mb-2">Network Dashboard</h1>
+          <p className="text-muted-foreground">Hyperledger Fabric network with real-time IoT monitoring and AI analytics</p>
         </div>
 
         {/* Stats Grid */}
@@ -53,16 +53,17 @@ const Dashboard = () => {
           {/* Recent Transactions */}
           <Card className="lg:col-span-2">
             <CardHeader>
-              <CardTitle>Recent Transactions</CardTitle>
-              <CardDescription>Latest blockchain transactions on your network</CardDescription>
+              <CardTitle>Recent Blockchain Transactions</CardTitle>
+              <CardDescription>Latest transactions on Hyperledger Fabric network with IoT data</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
                 {recentTransactions.map((tx) => (
                   <div key={tx.id} className="flex items-center justify-between p-4 rounded-lg border border-border hover:bg-muted/50 transition-colors">
-                    <div className="space-y-1">
+                    <div className="flex-1 space-y-1">
                       <p className="font-medium">{tx.product}</p>
                       <p className="text-sm text-muted-foreground">{tx.id} • {tx.timestamp}</p>
+                      <p className="text-xs text-accent">{tx.sensors}</p>
                     </div>
                     <div className="flex items-center gap-3">
                       <span className={`px-3 py-1 rounded-full text-xs font-medium ${

@@ -11,15 +11,15 @@ const Admin = () => {
   };
 
   const networkStats = [
-    { label: "Total Users", value: "342", icon: Users },
-    { label: "Active Nodes", value: "24", icon: Activity },
-    { label: "Security Level", value: "High", icon: Shield },
+    { label: "Fabric Nodes", value: "24", icon: Users },
+    { label: "Smart Contracts", value: "8", icon: Activity },
+    { label: "HSM Keys Active", value: "156", icon: Shield },
   ];
 
   const recentActivity = [
-    { user: "Supplier-Alpha", action: "New shipment created", time: "5 min ago" },
-    { user: "Mfg-Beta", action: "Production batch completed", time: "15 min ago" },
-    { user: "Dist-Gamma", action: "Route updated", time: "32 min ago" },
+    { user: "Supplier-Alpha", action: "New chaincode invoked", time: "5 min ago" },
+    { user: "IoT-Gateway", action: "GPS data anchored to Polygon", time: "15 min ago" },
+    { user: "AI-Engine", action: "Fraud detection alert triggered", time: "32 min ago" },
   ];
 
   return (
@@ -28,8 +28,8 @@ const Admin = () => {
       
       <div className="container mx-auto px-4 py-12">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2">Admin Panel</h1>
-          <p className="text-muted-foreground">System management and blockchain network control</p>
+          <h1 className="text-4xl font-bold mb-2">Network Administration</h1>
+          <p className="text-muted-foreground">Hyperledger Fabric network control with HSM key management</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -53,8 +53,8 @@ const Admin = () => {
         <div className="grid lg:grid-cols-3 gap-6">
           <Card className="lg:col-span-2">
             <CardHeader>
-              <CardTitle>Recent Network Activity</CardTitle>
-              <CardDescription>Latest actions across the blockchain</CardDescription>
+              <CardTitle>Network Activity</CardTitle>
+              <CardDescription>Real-time events from Kafka event stream</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -73,40 +73,40 @@ const Admin = () => {
 
           <Card>
             <CardHeader>
-              <CardTitle>System Controls</CardTitle>
-              <CardDescription>Blockchain management</CardDescription>
+              <CardTitle>Blockchain Controls</CardTitle>
+              <CardDescription>Network and security management</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               <Button 
                 className="w-full justify-start" 
                 variant="outline"
-                onClick={() => handleSystemAction("User verification")}
+                onClick={() => handleSystemAction("Keycloak user sync")}
               >
                 <Users className="mr-2 h-4 w-4" />
-                Manage Users
+                Manage Users (Keycloak)
               </Button>
               <Button 
                 className="w-full justify-start" 
                 variant="outline"
-                onClick={() => handleSystemAction("Network monitor")}
+                onClick={() => handleSystemAction("Fabric channel monitor")}
               >
                 <Activity className="mr-2 h-4 w-4" />
-                Network Monitor
+                Fabric Channels
               </Button>
               <Button 
                 className="w-full justify-start" 
                 variant="outline"
-                onClick={() => handleSystemAction("Security audit")}
+                onClick={() => handleSystemAction("HSM key rotation")}
               >
                 <Shield className="mr-2 h-4 w-4" />
-                Security Audit
+                HSM Key Management
               </Button>
               <Button 
                 className="w-full justify-start bg-gradient-primary hover:opacity-90"
-                onClick={() => handleSystemAction("System settings")}
+                onClick={() => handleSystemAction("Deploy chaincode")}
               >
                 <Settings className="mr-2 h-4 w-4" />
-                System Settings
+                Deploy Chaincode
               </Button>
             </CardContent>
           </Card>
