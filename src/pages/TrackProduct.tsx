@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Search, Package, MapPin, CheckCircle, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SupplyChainMap from "@/components/SupplyChainMap";
 import { toast } from "sonner";
 
 const TrackProduct = () => {
@@ -100,6 +101,16 @@ const TrackProduct = () => {
                       <p className="font-medium text-xs">chaincode_v2.1</p>
                     </div>
                   </div>
+                </CardContent>
+              </Card>
+
+              <Card className="shadow-card">
+                <CardHeader>
+                  <CardTitle>Live GPS Tracking</CardTitle>
+                  <CardDescription>Real-time location tracking via IoT sensors</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <SupplyChainMap />
                 </CardContent>
               </Card>
 
